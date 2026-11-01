@@ -11,9 +11,9 @@ CLAIMED = 25
 
 def one_sample_t(values, claimed):
     n = len(values)
-    signal = 0.0          # TODO: sample average minus the claimed value
-    standard_error = 1.0  # TODO: standard deviation divided by the square root of n
-    t = 0.0               # TODO: signal divided by the standard error
+    signal = values.mean()-claimed         # TODO: sample average minus the claimed value
+    standard_error = values.std() / np.sqrt(n)  # TODO: standard deviation divided by the square root of n
+    t = signal / standard_error             # TODO: signal divided by the standard error
     return standard_error, signal, t
 
 
